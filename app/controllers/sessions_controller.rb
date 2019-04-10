@@ -4,5 +4,6 @@ class SessionsController < ApplicationController
   def create
     @resp = Faraday.get("") do |req|
     end
+    body = JSON.parse(resp.body)
   end
 end
