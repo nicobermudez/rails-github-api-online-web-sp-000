@@ -5,5 +5,7 @@ class SessionsController < ApplicationController
     @resp = Faraday.get("") do |req|
     end
     body = JSON.parse(resp.body)
+    session[:token] = body["access_token"]
+    redirect_to root_path
   end
 end
