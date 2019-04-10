@@ -12,6 +12,8 @@ class RepositoriesController < ApplicationController
       req.headers['Authorization'] = 'token ' + session[:token]
       req.headers['Accept'] = 'application/json'
     end
+
+    @repo_data = JSON.parse(repos.body)
   end
 
 end
