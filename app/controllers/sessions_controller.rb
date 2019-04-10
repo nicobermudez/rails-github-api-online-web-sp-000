@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate_user
 
   def create
-    @resp = Faraday.get("") do |req|
+    @resp = Faraday.post("") do |req|
       req.body = { 'client_id': client_id, 'client_secret': client_secret, 'code': code }
       req.headers['Accept'] = 'application/json'
     end
